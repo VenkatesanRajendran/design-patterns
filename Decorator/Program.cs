@@ -38,5 +38,4 @@ namespace Decorator
 		public string name;
 		public List<string> items;
 	}
-
 }

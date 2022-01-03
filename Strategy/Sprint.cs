@@ -2,16 +2,26 @@
 {
 	class Sprint
 	{
-		private readonly ISprintStrategy _sprintStrategy;
+		private ISprintStrategy _sprintStrategy;
+
+		public Sprint()
+		{
+
+		}
 
 		public Sprint(ISprintStrategy sprintStrategy)
 		{
 			_sprintStrategy = sprintStrategy;
 		}
 
-		public void ChangePhase()
+		public void ChangeStrategy(ISprintStrategy sprintStrategy)
 		{
-			_sprintStrategy.ChangeStrategy();
+			_sprintStrategy = sprintStrategy;
+		}
+
+		public void DoAction()
+		{
+			_sprintStrategy.PerformAction();
 		}
 	}
 }

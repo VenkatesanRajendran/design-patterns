@@ -2,6 +2,6 @@
 {
 	interface ISprintStrategy
 	{
-		void ChangeStrategy();
+		void PerformAction();
 	}
 }

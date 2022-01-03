@@ -6,14 +6,15 @@ namespace Strategy
 	{
 		static void Main(string[] args)
 		{
-			Sprint s = new Sprint(new Acceleration());
-			s.ChangePhase();
+			Sprint s = new Sprint();
+			s.ChangeStrategy(new Acceleration());
+			s.DoAction();
 
-			s = new Sprint(new Transition());
-			s.ChangePhase();
+			s.ChangeStrategy(new Transition());
+			s.DoAction();
 
-			s = new Sprint(new TopSpeed());
-			s.ChangePhase();
+			s.ChangeStrategy(new TopSpeed());
+			s.DoAction();
 
 			Console.ReadLine();
 		}

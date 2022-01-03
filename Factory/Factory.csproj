@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{FE631291-512A-4C78-9295-6C60D8A54FC6}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Factory</RootNamespace>
     <AssemblyName>Factory</AssemblyName>
@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -41,14 +44,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bike.cs" />
-    <Compile Include="Car.cs" />
-    <Compile Include="FactoryImplementation.cs" />
-    <Compile Include="IVehicleFactory.cs" />
-    <Compile Include="VehicleFactory.cs" />
+    <Compile Include="Creators\ICreditCardFactory.cs" />
+    <Compile Include="Products\ICreditCard.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Products\GoldCreditCard.cs" />
+    <Compile Include="Products\PlatinumCreditCard.cs" />
+    <Compile Include="Creators\CreditCardFactories.cs" />
+    <Compile Include="Products\SilverCreditCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IVehicle.cs" />
-    <Compile Include="VehicleType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

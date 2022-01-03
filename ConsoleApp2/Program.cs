@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace ConsoleApp2
 {
@@ -18,79 +20,35 @@ namespace ConsoleApp2
 			//int i = 10;
 			//o = i;
 			//Console.WriteLine(i);
-			Person a = new Person();
-			a.Name = "Arun";
-			a.Age = 20;
-			a.address = new Address("1", "2");
-
-			Person b = a;
-			a.Age = 25;
-			a.address.LineOne = "sdfgsg";
-			Console.WriteLine(a.Age);
-			Console.WriteLine(b.Age);
-			Console.WriteLine(a.address.LineOne);
-			Console.WriteLine(a.address.LineOne);
-
-
+			string sampleText = "abc";
+			var byteArray = Encoding.UTF8.GetBytes(sampleText);
+			var sb = new StringBuilder();
+			foreach (byte b in byteArray)
+			{
+				sb.Append(b.ToString("x2"));
+			}
+			List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+			foreach (int i in GetEvenNumbers(numbers))
+			{
+				Console.WriteLine(i);
+			}
 			Console.ReadLine();
-		}
-	}
-
-	public class Person
-	{
-		public string Name;
-		public int Age;
-		protected int Salary;
-		public Address address;
-
-		public Person() : this("test")
-		{
-			Console.WriteLine("Constructor A");
+			Add(1, 2, out int d);
 		}
 
-		private Person(string name)
+		public static IEnumerable<int> GetEvenNumbers(List<int> numbers)
 		{
-			Console.WriteLine(name);
+			foreach (var number in numbers)
+			{
+				if (number % 2 == 0)
+					yield return number;
+			}
 		}
 
-		public void Print()
+		public static int Add(int a, int b, out int c)
 		{
-			Console.WriteLine("Print A");
-		}
-
-		public override string ToString()
-		{
-			return Name;
-		}
-	}
-
-	public class Address
-	{
-		public string LineOne;
-		public string LineTwo;
-
-		public Address(string v1, string v2)
-		{
-			LineOne = v1;
-			LineTwo = v2;
-		}
-	}
-
-	class B : Person
-	{
-		public string gender;
-
-		public B()
-		{
-			Console.WriteLine("Constructor B");
-		}
-		public new void Print()
-		{
-			Console.WriteLine("Print B");
-		}
-		public void MethodB()
-		{
-
+			c = a - b;
+			return a + b;
 		}
 	}
 }

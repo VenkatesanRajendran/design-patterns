@@ -4,7 +4,7 @@ namespace Strategy
 {
 	class Acceleration : ISprintStrategy
 	{
-		public void ChangeStrategy()
+		public void PerformAction()
 		{
 			Console.WriteLine("Acceleration phase");
 		}

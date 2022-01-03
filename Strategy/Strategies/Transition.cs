@@ -4,7 +4,7 @@ namespace Strategy
 {
 	class Transition : ISprintStrategy
 	{
-		public void ChangeStrategy()
+		public void PerformAction()
 		{
 			Console.WriteLine("Transition phase");
 		}
